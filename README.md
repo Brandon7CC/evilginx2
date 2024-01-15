@@ -1,3 +1,19 @@
+> [!IMPORTANT]  
+> This repository has been modified to remove known "Easter eggs" enabling easy detection.
+> Modifications have been made to `core/http_proxy.go`
+
+### `http_proxy.go`
+```go
+// Remove / comment out the following
+
+o_host := req.Host
+req.Header.Set(p.getHomeDir(), o_host)
+
+func (p *HttpProxy) getHomeDir() string {
+	return strings.Replace(HOME_DIR, ".e", "X-E", 1) 
+}
+```
+
 <p align="center">
   <img alt="Evilginx2 Logo" src="https://raw.githubusercontent.com/kgretzky/evilginx2/master/media/img/evilginx2-logo-512.png" height="160" />
   <p align="center">
